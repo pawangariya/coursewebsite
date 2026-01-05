@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "replicate-stdio": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "replicate-mcp"]
+    }
+  },
+  "inputs": []
+}

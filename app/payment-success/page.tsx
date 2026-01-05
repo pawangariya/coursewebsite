@@ -116,7 +116,7 @@ function PaymentSuccessContent() {
 
           {/* CTA Button */}
           <button
-            onClick={() => router.push('/dashboard')}
+            onClick={() => router.push('')}
             className="w-full px-6 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200"
           >
             Back to Dashboard

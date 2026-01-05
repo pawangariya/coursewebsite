@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { useUser } from '@clerk/nextjs'
-import { redirect, usePathname } from 'next/navigation'
+import {  usePathname } from 'next/navigation'
 import DashboardNav from '../components/dashboard/DashboardNav'
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -16,8 +16,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     }
   }, [pathname])
 
-  if (!isLoaded) return null
-  if (!user) redirect('/sign-in')
+  if (!isLoaded) return null;
+  if (!user) return null
+
 
   const role = (user.publicMetadata.role as 'admin' | 'student') || 'student'
   const userName = user.firstName || 'User'

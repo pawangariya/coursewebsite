@@ -1,19 +1,18 @@
 import { SignIn } from '@clerk/nextjs';
-import React from 'react'
 
-const SignInPage = async({searchParams}: {searchParams: {redirect_url?: string}}) => {
-    const params = await searchParams;
-    const redirectUrl = params.redirect_url || '/dashboard';
+export default async function SignInPage() {
   return (
-    <div className='flex pt-9 items-center justify-center bg-linear-to-r from-gray-50 to-gray-100'>
-      <SignIn  appearance={{
-        elements: {
-            formButtonPrimary: "bg-blue-600 hover:bg-blue-700 text-sm normal-case",
-            card: 'shadow-xl'
-        }
-      }} signUpUrl='/sign-up' afterSignInUrl={redirectUrl} redirectUrl={redirectUrl}/>
+    <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-gray-50 to-gray-100">
+      <SignIn
+        appearance={{
+          elements: {
+            formButtonPrimary: 'bg-blue-600 hover:bg-blue-700 text-sm normal-case',
+            card: 'shadow-xl',
+          },
+        }}
+        signUpUrl="/sign-up"
+        forceRedirectUrl="/dashboard" // ✅ THIS forces dashboard after login
+      />
     </div>
-  )
+  );
 }
-
-export default SignInPage

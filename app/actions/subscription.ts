@@ -5,14 +5,24 @@ import { currentUser } from '@clerk/nextjs/server';
 import { checkSubscription } from './course';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  // apiVersion: '2025-10-29.clover',
-});
+const isStripeEnabled = !!process.env.STRIPE_SECRET_KEY;
+
+const stripe = isStripeEnabled
+  ? new Stripe(process.env.STRIPE_SECRET_KEY!)
+  : null;
+
 
 /**
  * Create Stripe checkout session for $99 subscription
  */
 export async function createCheckoutSession() {
+  if (!isStripeEnabled || !stripe) {
+  return {
+    success: false,
+    error: 'Payments are currently disabled',
+  };
+}
+
   try {
     const user = await currentUser();
 
@@ -113,6 +123,13 @@ export async function getMySubscription() {
  * Ensures subscription is saved even if webhook fails
  */
 export async function ensureSubscriptionFromSession(sessionId: string) {
+  if (!isStripeEnabled || !stripe) {
+  return {
+    success: false,
+    error: 'Payments are currently disabled',
+  };
+}
+
   try {
     // Verify the session with Stripe
     const session = await stripe.checkout.sessions.retrieve(sessionId);

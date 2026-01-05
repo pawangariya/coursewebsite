@@ -5,13 +5,24 @@ import { activateSubscription } from '@/app/actions/course';
 import Subscription from '@/app/models/Subscription';
 import connectDB from '@/app/lib/mongodb';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-//   apiVersion: '2025-10-29.clover',
-});
+const isStripeEnabled = !!process.env.STRIPE_SECRET_KEY;
 
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+const stripe = isStripeEnabled
+  ? new Stripe(process.env.STRIPE_SECRET_KEY!)
+  : null;
+
+
+const webhookSecret = isStripeEnabled
+  ? process.env.STRIPE_WEBHOOK_SECRET!
+  : '';
+
 
 export async function POST(req: Request) {
+  if (!isStripeEnabled || !stripe) {
+    // Stripe disabled → silently ignore webhook
+    return NextResponse.json({ stripe: 'disabled' }, { status: 200 });
+  }
+
   try {
     const body = await req.text();
     const signature = (await headers()).get('stripe-signature')!;

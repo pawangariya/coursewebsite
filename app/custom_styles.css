@@ -162,12 +162,12 @@ h3 {
   line-height: 1.2;
 }
 
-p {
+/* p {
   margin-bottom: 0;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.3;
-}
+} */
 
 ul, ol {
   margin-top: 0;
@@ -401,7 +401,7 @@ a {
 .button-primary {
   grid-column-gap: 1.25rem;
   grid-row-gap: 1.25rem;
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-brand-secondary);
   box-shadow: 0 12.82px 0 0 var(--color-neutral-black);
   color: var(--color-neutral-white);
   text-align: center;
@@ -418,9 +418,9 @@ a {
   text-decoration: none;
 }
 
-.button-primary:hover {
-  background-color: #ff0c42;
-}
+/* .button-primary:hover {
+  background-color: blue;
+} */
 
 .button-text-black {
   text-shadow: 0 4.97px 1.26px rgba(0, 0, 0, 0.74);
@@ -1186,9 +1186,9 @@ a {
     line-height: 1.1;
   }
 
-  p {
+  /* p {
     font-size: 1.25rem;
-  }
+  } */
 
   .padding-global.wide {
     padding-left: .55rem;

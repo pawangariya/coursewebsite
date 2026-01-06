@@ -406,11 +406,11 @@ setCourse({
                 </svg>
               </button>
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl font-bold text-gray-900 truncate">{course.title}</h1>
+                <h1 className="!text-base sm:!text-xl !font-bold text-gray-900 truncate">{course.title}</h1>
                 <p className="text-sm text-gray-600">{course.instructorName || 'Expert Instructor'}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pt-6">
               <div className="text-right hidden sm:block">
                 <p className="text-xs text-gray-500">Your Progress</p>
                 <p className="text-sm font-bold text-blue-600">{calculateProgress()}%</p>
@@ -457,11 +457,11 @@ setCourse({
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h2 className="!text-xl font-bold text-gray-900 mb-2">
                       {currentLesson?.title || 'Select a lesson'}
                     </h2>
                     {currentModule && (
-                      <p className="text-sm text-gray-600 mb-3">
+                      <p className="!text-sm text-gray-600 mb-3">
                         Module: {currentModule.title}
                       </p>
                     )}
@@ -475,7 +475,7 @@ setCourse({
 
                 {currentLesson?.description && (
                   <div className="prose max-w-none mb-6">
-                    <p className="text-gray-700 leading-relaxed">{currentLesson.description}</p>
+                    <p className="text-gray-700 leading-relaxed !text-base">{currentLesson.description}</p>
                   </div>
                 )}
 
@@ -497,7 +497,7 @@ setCourse({
             {/* Course Description Tab */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">About This Course</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">{course.description}</p>
+              <p className="text-gray-700 leading-relaxed mb-6 !text-base">{course.description}</p>
 
               {course.learningOutcomes && course.learningOutcomes.length > 0 && (
                 <div>

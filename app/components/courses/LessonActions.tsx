@@ -18,7 +18,7 @@ export function LessonActions({
   disableNext,
 }: LessonActionsProps) {
   return (
-    <div className="flex flex-wrap items-center gap-3 pb-6">
+    <div className=" flex flex-wrap items-center gap-1.5 pb-2 ">
       <button
         onClick={onToggleComplete}
         className={`flex-1 sm:flex-none px-6 py-3 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${

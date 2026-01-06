@@ -74,10 +74,10 @@ export default function CTAButton() {
           >
             <div>
               <div className="button-text-black">
-                {loading ? 'Processing...' : `Get All-Access For Only $${SUBSCRIPTION_PRICE}`}
+                {loading ? 'Processing...' : `View Dashboard`}
               </div>
               <div className="button-text">
-                {loading ? 'Redirecting to secure checkout...' : 'Unlimited Access to ALL Courses • One-Time Payment'}
+                {loading ? 'Redirecting to secure checkout...' : 'Unlimited Access to ALL Courses '}
               </div>
             </div>
             <div

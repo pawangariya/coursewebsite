@@ -120,7 +120,7 @@ export function CourseContentSidebar({
                         }`}
                       >
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
+                          className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
                             isCurrent
                               ? 'bg-blue-600 text-white'
                               : isCompleted
@@ -129,7 +129,7 @@ export function CourseContentSidebar({
                           }`}
                         >
                           {isCompleted ? (
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                               <path
                                 fillRule="evenodd"
                                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -140,9 +140,9 @@ export function CourseContentSidebar({
                             lessonIdx + 1
                           )}
                         </div>
-                        <div className="flex-1 min-w-0">
+                        <div className="flex-1 min-w-0 text-xs">
                           <p
-                            className={`font-medium text-sm mb-1 ${
+                            className={`font-medium text-xs mb-1 ${
                               isCurrent ? 'text-blue-900' : isCompleted ? 'text-gray-700' : 'text-gray-900'
                             }`}
                           >
@@ -158,7 +158,7 @@ export function CourseContentSidebar({
                         </div>
                         {lesson.videoUrl && !isCompleted && (
                           <svg
-                            className={`w-5 h-5 shrink-0 ${isCurrent ? 'text-blue-600' : 'text-gray-400'}`}
+                            className={`w-3 h-3 shrink-0 ${isCurrent ? 'text-blue-600' : 'text-gray-400'}`}
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
